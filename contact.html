@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title data-i18n="meta.contact.title">Contact · Căsuța de pe Maluri</title>
+<meta name="description" data-i18n-content="meta.contact.desc" content="Întrebări generale? Scrie-ne.">
+<meta name="theme-color" content="#1f4a30">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f4a30'/%3E%3Cpath d='M16 7l7 9-7 9-7-9z' fill='%23b3202a'/%3E%3C/svg%3E">
+</head>
+<body data-page="contact" data-title="meta.contact.title">
+<div id="site-header"></div>
+<main id="main">
+
+<header class="page-hero">
+  <img src="assets/img/lanterns.jpg" alt="">
+  <div class="container">
+    <span class="eyebrow reveal" data-i18n="hero.eyebrow"></span>
+    <h1 class="reveal" style="--d:1" data-i18n="ct.title"></h1>
+    <p class="reveal" style="--d:2" data-i18n="ct.sub"></p>
+  </div>
+</header>
+
+<section class="section" style="padding-top:3.5rem">
+  <div class="container contact">
+    <div class="info">
+      <a class="reveal" data-tel href="#"><span class="ico" data-icon="phone"></span><span><small data-i18n="ct.card.phone"></small><b data-phone></b></span></a>
+      <a class="reveal" style="--d:1" data-mailto href="#"><span class="ico" data-icon="mail"></span><span><small data-i18n="ct.card.email"></small><b data-email></b></span></a>
+      <a class="reveal" style="--d:2" data-wa href="#" target="_blank" rel="noopener"><span class="ico" data-icon="chat"></span><span><small data-i18n="ct.card.wa"></small><b>WhatsApp</b></span></a>
+      <div class="ic reveal" style="--d:3"><span class="ico" data-icon="pin"></span><span><small data-i18n="ct.card.where"></small><b data-i18n="ct.card.where.v"></b></span></div>
+      <p class="reveal" style="--d:3;color:var(--muted);font-size:.92rem;margin:.25rem 0" data-i18n="ct.card.reply"></p>
+      <div class="book-teaser reveal" style="--d:4">
+        <div><h3 data-i18n="ct.book.t"></h3><p data-i18n="ct.book.d"></p></div>
+        <a class="btn btn--red btn--sm" href="booking.html"><span data-i18n="nav.book"></span></a>
+      </div>
+    </div>
+
+    <form class="box reveal reveal--right" id="contactForm" novalidate style="margin:0">
+      <h2 data-i18n="ct.form.title"></h2>
+      <div class="grid2" style="margin-top:1.25rem">
+        <div class="field"><label for="cn" data-i18n="ct.name"></label><input id="cn" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="ce" data-i18n="ct.email"></label><input id="ce" name="email" type="email" autocomplete="email" required></div>
+        <div class="field"><label for="cp" data-i18n="ct.phone"></label><input id="cp" name="phone" type="tel" autocomplete="tel"></div>
+        <div class="field"><label for="ct" data-i18n="ct.topic"></label>
+          <select id="ct" name="topic"><option value="general" data-i18n="ct.t.general"></option><option value="group" data-i18n="ct.t.group"></option><option value="area" data-i18n="ct.t.area"></option><option value="other" data-i18n="ct.t.other"></option></select></div>
+        <div class="field full"><label for="cm" data-i18n="ct.message"></label><textarea id="cm" name="message" required></textarea></div>
+        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label class="check full"><input type="checkbox" name="consent"><span data-i18n="ct.consent"></span></label>
+      </div>
+      <p style="margin:1.25rem 0 0"><button class="btn" type="submit"><span data-i18n="ct.send"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></p>
+      <div class="msg err" hidden role="alert"></div>
+      <div class="msg ok" hidden role="status"></div>
+    </form>
+  </div>
+</section>
+
+<section class="section section--tint" style="padding-top:3rem">
+  <div class="container">
+    <div class="head"><h2 class="reveal" data-i18n="ct.map.title"></h2></div>
+    <div class="map reveal reveal--scale" id="map" role="region" data-i18n-aria-label="ct.map.title"></div>
+  </div>
+</section>
+
+</main>
+<div id="site-footer"></div>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

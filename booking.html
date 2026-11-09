@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title data-i18n="meta.booking.title">Rezervare · Căsuța de pe Maluri</title>
+<meta name="description" data-i18n-content="meta.booking.desc" content="Alege datele și trimite cererea de rezervare.">
+<meta name="theme-color" content="#1f4a30">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f4a30'/%3E%3Cpath d='M16 7l7 9-7 9-7-9z' fill='%23b3202a'/%3E%3C/svg%3E">
+</head>
+<body data-page="booking" data-title="meta.booking.title">
+<div id="site-header"></div>
+<main id="main">
+
+<header class="page-hero">
+  <img src="assets/img/house-night-front.jpg" alt="">
+  <div class="container">
+    <span class="eyebrow reveal" data-i18n="hero.eyebrow"></span>
+    <h1 class="reveal" style="--d:1" data-i18n="bk.title"></h1>
+    <p class="reveal" style="--d:2" data-i18n="bk.sub"></p>
+    <ol class="steps reveal" style="--d:3;padding:0">
+      <li class="is-on"><b>1</b><span data-i18n="bk.step1"></span></li>
+      <li class="is-on"><b>2</b><span data-i18n="bk.step2"></span></li>
+      <li class="is-off"><b>3</b><span data-i18n="bk.step3"></span></li>
+    </ol>
+  </div>
+</header>
+
+<section class="section" style="padding-top:3rem">
+  <div class="container booking" id="booking">
+    <form id="bkForm" novalidate>
+      <!-- Step 1 · availability calendar (connect CONFIG.booking.availabilityEndpoint) -->
+      <div class="box reveal">
+        <h2 data-i18n="bk.cal.title"></h2>
+        <p class="sub" data-i18n="bk.cal.hint"></p>
+        <div class="cal-head">
+          <button class="arrow" id="prevM" type="button" data-i18n-aria-label="bk.prev"></button>
+          <button class="arrow" id="nextM" type="button" data-i18n-aria-label="bk.next"></button>
+        </div>
+        <div class="cal" id="cal"></div>
+        <div class="cal-foot">
+          <div class="legend">
+            <span><i></i><b data-i18n="bk.legend.free" style="font-weight:500"></b></span>
+            <span><i class="l-b"></i><b data-i18n="bk.legend.booked" style="font-weight:500"></b></span>
+            <span><i class="l-s"></i><b data-i18n="bk.legend.sel" style="font-weight:500"></b></span>
+          </div>
+          <button class="linkbtn" id="clearSel" type="button" data-i18n="bk.clear"></button>
+        </div>
+        <div class="msg err" id="bkErr" hidden role="alert"></div>
+      </div>
+
+      <div class="box reveal">
+        <h2 data-i18n="bk.guests"></h2>
+        <div class="stepper" style="margin-top:1rem">
+          <button type="button" id="gMinus" data-i18n-aria-label="bk.guests.minus">−</button>
+          <output id="gOut" aria-live="polite">2</output>
+          <button type="button" id="gPlus" data-i18n-aria-label="bk.guests.plus">+</button>
+        </div>
+      </div>
+
+      <!-- Step 2 · guest details -->
+      <div class="box reveal">
+        <h2 data-i18n="bk.you"></h2>
+        <div class="grid2" style="margin-top:1.25rem">
+          <div class="field"><label for="bn" data-i18n="bk.name"></label><input id="bn" name="name" autocomplete="name" required></div>
+          <div class="field"><label for="be" data-i18n="bk.email"></label><input id="be" name="email" type="email" autocomplete="email" required></div>
+          <div class="field full"><label for="bp" data-i18n="bk.phone"></label><input id="bp" name="phone" type="tel" autocomplete="tel"></div>
+          <div class="field full"><label for="bno" data-i18n="bk.notes"></label><textarea id="bno" name="notes" data-i18n-placeholder="bk.notes.ph"></textarea></div>
+          <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <label class="check full"><input type="checkbox" name="consent"><span data-i18n="bk.consent"></span></label>
+        </div>
+
+        <!-- Step 3 · payment placeholder (connect CONFIG.booking.paymentProvider) -->
+        <div class="pay">
+          <h3><span data-i18n="bk.pay.title"></span><span class="badge" data-i18n="bk.pay.badge"></span></h3>
+          <p data-i18n="bk.pay.soon"></p>
+          <div class="cards-ph" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        </div>
+        <button class="btn btn--red" type="submit"><span data-i18n="bk.submit"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <div class="msg ok" id="bkOk" hidden role="status"></div>
+        <p class="policy" data-i18n="bk.policy"></p>
+      </div>
+    </form>
+
+    <aside class="box summary reveal reveal--right" aria-live="polite">
+      <div class="folk"></div>
+      <h2 data-i18n="bk.sum.title"></h2>
+      <dl>
+        <div><dt data-i18n="bk.sum.in"></dt><dd id="sIn">—</dd></div>
+        <div><dt data-i18n="bk.sum.out"></dt><dd id="sOut">—</dd></div>
+        <div><dt data-i18n="bk.sum.nights"></dt><dd id="sNights">—</dd></div>
+        <div><dt data-i18n="bk.sum.guests"></dt><dd id="sGuests">2</dd></div>
+        <div class="total"><dt data-i18n="bk.sum.price"></dt><dd id="sPrice"></dd></div>
+      </dl>
+      <a class="btn btn--ghost-dark btn--sm" data-tel href="#"><span data-phone></span></a>
+    </aside>
+  </div>
+</section>
+
+</main>
+<div id="site-footer"></div>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/booking.js"></script>
+</body>
+</html>
