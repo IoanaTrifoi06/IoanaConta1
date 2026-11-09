@@ -1,4 +1,4 @@
-# Căsuța de pe Maluri — Botiza, Maramureș
+# Căsuța din Butian — Botiza, Maramureș
 
 Static, dependency-free website (HTML + CSS + vanilla JS). Languages: RO · EN · FR · DE.
 
@@ -17,10 +17,13 @@ python3 -m http.server 8000   # then open http://localhost:8000
 ```
 No build step. Deploy the folder to any static host (Netlify, GitHub Pages, …).
 
-## ⚠️ Please verify / fill in — `assets/js/config.js`
-The cazare.online listing could not be fetched while building, so the following are **placeholders**:
-phone, WhatsApp, email, check-in/out times, `maxGuests`, `minNights`. Capacity, prices, bed counts, house rules and amenities beyond what the photos show (hot tub, fireplace, long dining table, attic window, bonfire, hammock, sheep) are intentionally **not** stated.
-Travel times on the Maramureș page are approximate and should be checked.
+## Data source & things to verify — `assets/js/config.js`
+Contact details, capacity (10 places, 4 rooms), Wi-Fi/parking/BBQ area, no-pets and no-card-on-site come from the listing
+https://www.visit-ro.com/casuta-din-butian.html. Please verify:
+- **Price** (`pricePerNight: 1500` lei, whole house) — may be out of date; it drives the live total on the booking page.
+- **Hot tub:** the listing says "no ciubăr", but the supplied photos show an outdoor hot tub, so the site presents it. Remove it from `i18n.js`/`index.html` if it is no longer available.
+- Check-in/out times are not published, so the site says they are agreed at booking.
+- Travel times on the Maramureș page are approximate.
 
 ## Connecting booking & payments later
 In `config.js → booking`:

@@ -1,24 +1,22 @@
 /*
- * Căsuța de pe Maluri — site configuration
+ * Căsuța din Butian — site configuration
  * ---------------------------------------------------------------
  * Everything the owner may need to change or verify lives here.
- * Values marked  TODO  could not be confirmed (the cazare.online listing was
- * not reachable while building) — please replace them with the real data.
+ * Source: https://www.visit-ro.com/casuta-din-butian.html
+ * Values marked  VERIFY  come from that listing and may be out of date.
  */
 window.CONFIG = {
-  name: "Căsuța de pe Maluri",
+  name: "Căsuța din Butian",
 
-  // ---- Contact (TODO: replace with real details) -------------------------
-  phone: "+40 700 000 000",          // TODO
-  phoneHref: "+40700000000",         // TODO digits only, with country code
-  whatsapp: "40700000000",           // TODO or null to hide
-  email: "contact@casutadepemaluri.ro", // TODO
+  // ---- Contact (from the listing) ----------------------------------------
+  phone: "+40 755 321 984",
+  phoneHref: "+40755321984",
+  whatsapp: "40755321984",           // or null to hide the WhatsApp card
+  email: "contaioana@yahoo.com",
 
-  // ---- Stay information (TODO: verify) -----------------------------------
-  checkin: "15:00",                  // TODO
-  checkout: "11:00",                 // TODO
-  maxGuests: 10,                     // TODO real capacity
-  minNights: 1,                      // TODO
+  // ---- Stay information ---------------------------------------------------
+  maxGuests: 10,                     // listing: 10 places, 4 rooms
+  minNights: 1,                      // VERIFY
 
   // ---- Booking integration (later) ---------------------------------------
   booking: {
@@ -29,7 +27,7 @@ window.CONFIG = {
     // Static fallback until a calendar (iCal / channel manager / API) is connected.
     // Format: [checkIn, checkOut] ISO dates; the check-out night is free again.
     bookedRanges: [],
-    pricePerNight: null,             // number, e.g. 450 — shows live totals when set
+    pricePerNight: 1500,             // VERIFY — listing: whole house, 1500 lei/night
     currency: "RON",
     paymentProvider: null            // e.g. "stripe" | "netopia" | "euplatesc"
   },

@@ -1,4 +1,4 @@
-/* Căsuța de pe Maluri — shared behaviour (i18n, header/footer, animations, carousel, gallery, FAQ) */
+/* Căsuța din Butian — shared behaviour (i18n, header/footer, animations, carousel, gallery, FAQ) */
 (function () {
   "use strict";
   var C = window.CONFIG, T = window.T, LANGS = window.LANGS;
@@ -43,7 +43,7 @@
   var lang = detect();
   function fill(s) {
     return s.replace(/\{(\w+)\}/g, function (m, k) {
-      var map = { checkin: C.checkin, checkout: C.checkout, phone: C.phone, email: C.email };
+      var map = { checkin: C.checkin, checkout: C.checkout, phone: C.phone, email: C.email, price: C.booking && C.booking.pricePerNight };
       return map[k] != null ? map[k] : m;
     });
   }
